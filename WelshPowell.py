@@ -88,5 +88,4 @@ def WelshPowell(G=nx.Graph()):
       #remove o vertice selecionado para que possa seguir para o proximo vertice de maior grau
       graus.remove((valorMax,indiceMax))
 
-   print(particoes)
    return particoes
