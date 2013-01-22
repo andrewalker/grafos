@@ -3,7 +3,7 @@
 
 import networkx as nx
 import tkFileDialog
-import MST_Kruskal as mst
+import Kruskal as mst
 
 file_path = tkFileDialog.askopenfilename()
 

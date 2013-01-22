@@ -9,7 +9,7 @@ def find_set(lista, vertice):
             return i
         i = i+1
 
-def MST_Kruskal(G):
+def Kruskal(G):
     if 'weight' in G.edges(data=True)[0][2]:
         grafo_com_peso = True
     else:
