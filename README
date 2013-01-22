@@ -1,4 +1,5 @@
 IMPLEMENTAÇÃO DE ALGORITMOS DA TEORIA DOS GRAFOS EM PYTHON
+==========================================================
 
 Este projeto consiste na implementação dos seguintes algoritmos:
 
@@ -11,6 +12,7 @@ Este projeto consiste na implementação dos seguintes algoritmos:
 
 
 PREREQUISITOS
+=============
 
 O projeto foi construído utilizando a versão 2.6 de Python, porém pode ser
 utilizado também com a versão 3 e posteriores.
