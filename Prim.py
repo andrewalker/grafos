@@ -44,11 +44,18 @@ def Prim(G = nx.Graph(), R = None):
                     pred[vizinho] = U
                     Q[vizinho]    = G[U][vizinho]['weight']
 
+        # Se existirem predecessores para U, então adicionaremos as arestas
+        # conectando o vértice U a seus predecessores
         if pred[U] is not 'null':
             for v1,v2,data in G.edges(data=True):
-                if ( (v1 is pred[U]) and (v2 is U) ):
+                # Caso v1 seja o predecessor e v2 seja U, então a ligação é
+                # evidente. No entanto, se for o contrário, ou seja, caso v2
+                # seja U e v1 seja o predecessor, então adicionaremos a aresta
+                # apenas se o grafo não for direcionado.
+                if ( v1 is pred[U] and v2 is U ):
                     MST.add_edge(pred[U],U,data)
-                elif (  ( (v1 is U) and (v2 is pred[U]) ) and ( not nx.is_directed(G) )  ):
+                elif (  ( v1 is U and v2 is pred[U] ) and
+                        ( not nx.is_directed(G) )  ):
                     MST.add_edge(pred[U],U,data)
 
     return MST
