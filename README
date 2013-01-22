@@ -1,18 +1,18 @@
-IMPLEMENTAÇÃO DE ALGORITMOS DA TEORIA DOS GRAFOS EM PYTHON
+Implementação de algoritmos da Teoria dos Grafos em python
 ==========================================================
 
 Este projeto consiste na implementação dos seguintes algoritmos:
 
-    - Dijkstra (busca por caminhos mínimos)
-    - Prim (Minimum Spanning Tree)
-    - Kruskal (Minimum Spanning Tree)
-    - Busca em largura
-    - Busca em profundidade
-    - WelshPowell
+* Dijkstra (busca por caminhos mínimos)
+* Prim (Minimum Spanning Tree)
+* Kruskal (Minimum Spanning Tree)
+* Busca em largura
+* Busca em profundidade
+* WelshPowell
 
 
-PREREQUISITOS
-=============
+Prerequisitos
+-------------
 
 O projeto foi construído utilizando a versão 2.6 de Python, porém pode ser
 utilizado também com a versão 3 e posteriores.
