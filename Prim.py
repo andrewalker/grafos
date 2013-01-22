@@ -29,33 +29,33 @@ def Prim(G = nx.Graph(), R = None):
     MST  = nx.create_empty_copy(G)
 
     while Q:
-        # U := índice do menor elemento de Q
+        # u := índice do menor elemento de Q
         # pois queremos o vértice de menor peso
-        U = min(Q,key=Q.get)
+        u = min(Q,key=Q.get)
 
         # removemos de Q, pois ele será adicionado na árvore
-        del Q[U]
+        del Q[u]
 
-        # guardamos os pesos mínimos de cada vizinho de U em Q, se forem
+        # guardamos os pesos mínimos de cada vizinho de u em Q, se forem
         # menores do que os já armazenados
-        for vizinho in G[U]:
+        for vizinho in G[u]:
             if vizinho in Q:
-                if G[U][vizinho]['weight'] < Q[vizinho]:
-                    pred[vizinho] = U
-                    Q[vizinho]    = G[U][vizinho]['weight']
+                if G[u][vizinho]['weight'] < Q[vizinho]:
+                    pred[vizinho] = u
+                    Q[vizinho]    = G[u][vizinho]['weight']
 
-        # Se existirem predecessores para U, então adicionaremos as arestas
-        # conectando o vértice U a seus predecessores
-        if pred[U] is not 'null':
+        # Se existirem predecessores para u, então adicionaremos as arestas
+        # conectando o vértice u a seus predecessores
+        if pred[u] is not 'null':
             for v1,v2,data in G.edges(data=True):
-                # Caso v1 seja o predecessor e v2 seja U, então a ligação é
+                # Caso v1 seja o predecessor e v2 seja u, então a ligação é
                 # evidente. No entanto, se for o contrário, ou seja, caso v2
-                # seja U e v1 seja o predecessor, então adicionaremos a aresta
+                # seja u e v1 seja o predecessor, então adicionaremos a aresta
                 # apenas se o grafo não for direcionado.
-                if ( v1 is pred[U] and v2 is U ):
-                    MST.add_edge(pred[U],U,data)
-                elif (  ( v1 is U and v2 is pred[U] ) and
+                if ( v1 is pred[u] and v2 is u ):
+                    MST.add_edge(pred[u],u,data)
+                elif (  ( v1 is u and v2 is pred[u] ) and
                         ( not nx.is_directed(G) )  ):
-                    MST.add_edge(pred[U],U,data)
+                    MST.add_edge(pred[u],u,data)
 
     return MST
