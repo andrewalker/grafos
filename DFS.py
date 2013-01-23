@@ -3,13 +3,13 @@
 import networkx as nx
 import numpy as n
 
-tempo = 0
-
 def DFS(G, s):
     cor  = {}
     pred = {}
     d    = {}
     f    = {}
+
+    tempo = 0
 
     for v in G.nodes():
         cor[v]  = 'branco' # branco cinza e preto
@@ -19,9 +19,9 @@ def DFS(G, s):
 
     for v in G.nodes():
         if cor[v] == 'branco':
-            visit(G, v, cor, pred, d, f)
+            tempo = visit(G, v, cor, pred, d, f, tempo)
 
-def visit(G, s, cor, pred, d, f):
+def visit(G, s, cor, pred, d, f, tempo):
     tempo  = tempo + 1
     d[s]   = tempo
     cor[s] = 'cinza'
@@ -34,3 +34,5 @@ def visit(G, s, cor, pred, d, f):
     cor[s] = 'preta'
     tempo = tempo + 1
     f[v] = tempo
+
+    return tempo
