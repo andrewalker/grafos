@@ -15,8 +15,6 @@ def DFS(G, s):
         cor[v]  = 'branco' # branco cinza e preto
         pred[v] = None
 
-    tempo = tempo + 1
-
     for v in G.nodes():
         if cor[v] == 'branco':
             tempo = visit(G, v, cor, pred, d, f, tempo)
@@ -24,7 +22,7 @@ def DFS(G, s):
     H = nx.create_empty_copy(G)
 
     for v1,v2,data in G.edges(data=True):
-        if pred[v2] is v1:
+        if (pred[v2] is v1) or (pred[v1] is v2 and not nx.is_directed(H)):
             H.add_edge( v1, v2, data )
 
     return H
@@ -37,10 +35,10 @@ def visit(G, s, cor, pred, d, f, tempo):
     for v in G[s]:
         if cor[v] == 'branco':
             pred[v] = s
-            visit(G,v, cor, pred, d, f)
+            visit(G, v, cor, pred, d, f, tempo)
 
-    cor[s] = 'preta'
+    cor[s] = 'preto'
     tempo = tempo + 1
-    f[v] = tempo
+    f[s] = tempo
 
     return tempo
