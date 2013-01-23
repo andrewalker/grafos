@@ -1,0 +1,22 @@
+BFS(Grafo G, Vertice s)
+
+    FOR EACH v in V
+        color[v] = 'branco' ; branco cinza e preto
+        d[v] = inf; infinito, não sei como definir aqui
+        pred[v] = NULL
+
+    color[s] = 'cinza'
+    d[s] = 0
+    pred[s] = null
+
+    Q = {} (vazio)
+    push(Q,s)
+
+    WHILE(Q != {})
+        u = pop(Q)
+        FOR EACH v in neighbor(u)
+            IF(v.color = 'white')
+                color[v] = 'gray'
+                d[v] = d[u] + 1
+                push(Q,v)
+            color[u] = 'black'

@@ -1,0 +1,28 @@
+DFS(Grafo G)
+
+    FOR EACH v in V
+        color[v] = 'white'
+        pred[v] = NULL
+
+    tempo = 0 ; variavel global
+
+    FOR EACH v in V
+        IF(color[v] = 'white')
+            DFS_VISIT(G,v)
+
+
+
+
+DFS_VISIT(Grafo G, Vertice v)
+
+    tempo++
+    d[v] = tempo ; tempo de entrada
+    color[v] = 'gray'
+    
+    FOR EACH u in neighbor(v)
+        IF(color[u] = 'white')
+            pred[u] = v
+            DFS_VISIT(G,u)
+    color[v] = 'black'
+    tempo++
+    f[v] = tempo ; tempo de saida
