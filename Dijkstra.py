@@ -17,7 +17,7 @@ def Dijkstra(G, s):
     # Caso não haja pesos definidos para os vértices, atribuímos o valor 1
     for v1,v2 in G.edges():
         if ('weight' not in G[v1][v2]):
-            G[e][x]['weight'] = 1
+            G[v1][v2]['weight'] = 1
 
     Lambda[s] = 0
     pred[s] = None
