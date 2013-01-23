@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 # importação de bibliotecas
 import networkx as nx           # criação e manipulação de grafos
 import matplotlib.pyplot as pl  # plotagem de grafos

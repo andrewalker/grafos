@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import networkx as nx   #permite manipulação de grafos
 import sys
