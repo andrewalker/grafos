@@ -17,7 +17,6 @@ def BFS(G, s):
 
     cor[s]  = 'cinza'
     d[s]    = 0
-    pred[s] = None
 
     Q = [ s ]
 
@@ -25,8 +24,9 @@ def BFS(G, s):
         u = Q.pop()
         for v in G[u]:
             if cor[v] == 'branco':
-                cor[v] = 'cinza'
-                d[v]   = d[u] + 1
+                cor[v]  = 'cinza'
+                d[v]    = d[u] + 1
+                pred[v] = u
                 Q.append(v)
 
             cor[u] = 'preto'
