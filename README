@@ -15,4 +15,3 @@ Pré-Requisitos
 -------------
 
 São necessárias as bibliotecas NetworkX, Numpy e Matplotlib.
-Para utilizar a interface gráfica, é necessário tkinter, e Python 3.3.
