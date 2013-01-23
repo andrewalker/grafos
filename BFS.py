@@ -13,10 +13,6 @@ def BFS(G, s):
         cor[v]  = 'branco' # branco cinza e preto
         pred[v] = None
 
-    for v1,v2 in G.edges():
-        if ('weight' not in G[v1][v2]):
-            G[v1][v2]['weight'] = 1
-
     cor[s]  = 'cinza'
     d[s]    = 0
 
@@ -27,9 +23,21 @@ def BFS(G, s):
         for v in G[u]:
             if cor[v] == 'branco':
                 cor[v]  = 'cinza'
-                d[v]    = d[u] + G[u][v]['weight']
+                d[v]    = d[u] + 1
                 pred[v] = u
                 Q.append(v)
 
             cor[u] = 'preto'
 
+    H = nx.create_empty_copy(G)
+
+    for v2,v1 in pred.interitems():
+        if not H.has_node(v1):
+            H.add_node(v1)
+        if not H.has_node(v2):
+            H.add_node(v2)
+
+        e = G[v1][v2]
+        H.add_edge(*e)
+
+    return H
