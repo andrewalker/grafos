@@ -25,10 +25,10 @@ def BFS(G, s):
         u = Q.pop()
         for v in G[u]:
             if cor[v] == 'branco':
-                cor[v] = 'gray'
+                cor[v] = 'cinza'
                 d[v]   = d[u] + 1
                 Q.append(v)
 
-            cor[u] = 'black'
+            cor[u] = 'preto'
 
     return ?
