@@ -4,6 +4,7 @@ import networkx as nx   #permite manipulação de grafos
 import sys
 if sys.version_info[0] <3:
     from Tkinter import *
+    import tkFileDialog as tk
 else:
     from tkinter import *   #Prove interface gráfica para menu
 import Kruskal as krl
@@ -20,7 +21,7 @@ options['initialfile'] = '*.gexf'
 
 def aplica_kruskal():
     if sys.version_info[0] <3:
-        pathDoArquivo = FileDialog.askopenfilename()
+        pathDoArquivo = tk.Open().show()
     else:
         pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
@@ -32,7 +33,7 @@ def aplica_kruskal():
 
 def aplica_prim():
     if sys.version_info[0] <3:
-        pathDoArquivo = FileDialog.askopenfilename()
+        pathDoArquivo = tk.Open().show()
     else:
         pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
@@ -44,7 +45,7 @@ def aplica_prim():
     
 def aplica_largura():
     if sys.version_info[0] <3:
-        pathDoArquivo = FileDialog.askopenfilename()
+        pathDoArquivo = tk.Open().show()
     else:
         pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
@@ -56,7 +57,7 @@ def aplica_largura():
     
 def aplica_profundidade():
     if sys.version_info[0] <3:
-        pathDoArquivo = FileDialog.askopenfilename()
+        pathDoArquivo = tk.Open().show()
     else:
         pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
@@ -68,7 +69,7 @@ def aplica_profundidade():
     
 def aplica_dijkstra():
     if sys.version_info[0] <3:
-        pathDoArquivo = FileDialog.askopenfilename()
+        pathDoArquivo = tk.Open().show()
     else:
         pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
@@ -80,7 +81,7 @@ def aplica_dijkstra():
     
 def aplica_coloracao():
     if sys.version_info[0] <3:
-        pathDoArquivo = FileDialog.askopenfilename()
+        pathDoArquivo = tk.Open().show()
     else:
         pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
@@ -92,7 +93,7 @@ def aplica_coloracao():
     
 def aplica_todos():
     if sys.version_info[0] <3:
-        pathDoArquivo = FileDialog.askopenfilename()
+        pathDoArquivo = tk.Open().show()
     else:
         pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
@@ -117,7 +118,7 @@ def aplica_todos():
 
 def visualizar():
     if sys.version_info[0] <3:
-        pathDoArquivo = FileDialog.askopenfilename()
+        pathDoArquivo = tk.Open().show()
     else:
         pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
