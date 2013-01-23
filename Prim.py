@@ -48,10 +48,14 @@ def Prim(G = nx.Graph(), R = None):
         # conectando o vértice u a seus predecessores
         if pred[u] is not 'null':
             for v1,v2,data in G.edges(data=True):
-                # Caso v1 seja o predecessor e v2 seja u, então a ligação é
-                # evidente. No entanto, se for o contrário, ou seja, caso v2
-                # seja u e v1 seja o predecessor, então adicionaremos a aresta
-                # apenas se o grafo não for direcionado.
+                # para preservar os dados da aresta, foi necessário esse loop
+                # que verifica todas as arestas do grafo e procura a aresta
+                # (pred(u),u), porém, como um grafo não direcionado da
+                # biblioteca não duplica a existência de suas arestas no
+                # conjunto de arestas, isto é, se tem (u,v) não tem (v,u), há a
+                # necessidade de verificar, no caso de grafos não direcionados,
+                # se há a existência da aresta (u,pred(u)) ao invés de
+                # (pred(u),u)
                 if ( v1 is pred[u] and v2 is u ):
                     MST.add_edge(pred[u],u,data)
                 elif (  ( v1 is u and v2 is pred[u] ) and
