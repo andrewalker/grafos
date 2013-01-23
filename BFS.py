@@ -25,19 +25,15 @@ def BFS(G, s):
                 cor[v]  = 'cinza'
                 d[v]    = d[u] + 1
                 pred[v] = u
+
                 Q.append(v)
 
             cor[u] = 'preto'
 
     H = nx.create_empty_copy(G)
 
-    for v2,v1 in pred.interitems():
-        if not H.has_node(v1):
-            H.add_node(v1)
-        if not H.has_node(v2):
-            H.add_node(v2)
-
-        e = G[v1][v2]
-        H.add_edge(*e)
+    for v1,v2,data in G.edges(data=True):
+        if pred[v2] is v1:
+            H.add_edge( v1, v2, data )
 
     return H
