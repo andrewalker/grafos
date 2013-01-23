@@ -20,7 +20,7 @@ def BFS(G, s):
 
     while Q:
         u = Q.pop(0)
-        for v in G[u]:
+        for v in G.neighbors(u):
             if cor[v] == 'branco':
                 cor[v]  = 'cinza'
                 d[v]    = d[u] + 1
@@ -28,7 +28,7 @@ def BFS(G, s):
 
                 Q.append(v)
 
-            cor[u] = 'preto'
+        cor[u] = 'preto'
 
     H = nx.create_empty_copy(G)
 
