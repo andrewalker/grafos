@@ -86,7 +86,7 @@ def aplica_coloracao():
     else:
         pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
-    G = wp.WelshPowell(G, G.nodes()[0])
+    G = wp.WelshPowell(G)
     pathDoArquivo = pathDoArquivo.replace(".gexf","_WelshPowell.gexf")
     nx.write_gexf(G, pathDoArquivo)
     nx.draw(G)
