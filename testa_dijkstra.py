@@ -27,6 +27,5 @@ G.add_edge('z', 's', weight=7)
 
 H = d.Dijkstra(G, 's', 't')
 
-nx.draw(G)
 nx.draw(H)
 plt.show()

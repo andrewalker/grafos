@@ -50,8 +50,8 @@ def Dijkstra(G, s, t):
 
     P = G.subgraph(vertices_subgrafo)
 
-    for aresta in P.edges():
-        if aresta not in caminho:
-            P.remove_edge(*aresta)
+   #for aresta in P.edges():
+   #    if aresta not in caminho:
+   #        P.remove_edge(*aresta)
 
     return P
