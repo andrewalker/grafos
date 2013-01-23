@@ -27,5 +27,12 @@ G.add_edge('z', 's', weight=7)
 
 H = d.Dijkstra(G, 's')
 
-nx.draw(H)
+labels = {}
+for v1,v2,data in H.edges(data=True):
+    labels[(v1,v2)] = data['weight']
+
+pos = nx.spring_layout(H)
+nx.draw(H, pos)
+nx.draw_networkx_edge_labels(H, pos, labels)
+
 plt.show()
