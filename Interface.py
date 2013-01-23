@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 import networkx as nx   #permite manipulação de grafos
 import sys
@@ -37,7 +36,7 @@ def aplica_prim():
     else:
         pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
-    G = pr.Prim(G)
+    G = pr.Prim(G, G.nodes()[0])
     pathDoArquivo = pathDoArquivo.replace(".gexf","_MST_Prim.gexf")
     nx.write_gexf(G, pathDoArquivo)
     nx.draw(G)
@@ -49,7 +48,7 @@ def aplica_largura():
     else:
         pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
-    G = bfs.BFS(G)
+    G = bfs.BFS(G, G.nodes()[0])
     pathDoArquivo = pathDoArquivo.replace(".gexf","_BFS.gexf")
     nx.write_gexf(G, pathDoArquivo)
     nx.draw(G)
@@ -61,7 +60,7 @@ def aplica_profundidade():
     else:
         pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
-    G = dfs.DFS(G)
+    G = dfs.DFS(G, G.nodes()[0])
     pathDoArquivo = pathDoArquivo.replace(".gexf","_DFS.gexf")
     nx.write_gexf(G, pathDoArquivo)
     nx.draw(G)
@@ -73,7 +72,7 @@ def aplica_dijkstra():
     else:
         pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
-    G = dks.Dijkstra(G)
+    G = dks.Dijkstra(G, G.nodes()[0])
     pathDoArquivo = pathDoArquivo.replace(".gexf","_Dijkstra.gexf")
     nx.write_gexf(G, pathDoArquivo)
     nx.draw(G)
@@ -85,7 +84,7 @@ def aplica_coloracao():
     else:
         pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
-    G = wp.WelshPowell(G)
+    G = wp.WelshPowell(G, G.nodes()[0])
     pathDoArquivo = pathDoArquivo.replace(".gexf","_WelshPowell.gexf")
     nx.write_gexf(G, pathDoArquivo)
     nx.draw(G)
@@ -100,19 +99,19 @@ def aplica_todos():
     M = krl.Kruskal(G)
     pathDoArquivoNovo = pathDoArquivo.replace(".gexf","_MST_Kruskal.gexf")
     nx.write_gexf(M, pathDoArquivoNovo)
-    #M = pr.Prim(G)
+    #M = pr.Prim(G, G.nodes()[0])
     #pathDoArquivoNovo = pathDoArquivo.replace(".gexf","_MST_Prim.gexf")
     #nx.write_gexf(G, pathDoArquivoNovo)
-    M = bfs.BFS(G)
+    M = bfs.BFS(G, G.nodes()[0])
     pathDoArquivoNovo = pathDoArquivo.replace(".gexf","_BFS.gexf")
     nx.write_gexf(M, pathDoArquivoNovo)
-    M = dfs.DFS(G)
+    M = dfs.DFS(G, G.nodes()[0])
     pathDoArquivoNovo = pathDoArquivo.replace(".gexf","_DFS.gexf")
     nx.write_gexf(M, pathDoArquivoNovo)
-    M = dks.Dijkstra(G)
+    M = dks.Dijkstra(G, G.nodes()[0])
     pathDoArquivoNovo = pathDoArquivo.replace(".gexf","_Dijkstra.gexf")
     nx.write_gexf(M, pathDoArquivoNovo)
-    M = wp.WelshPowell(G)
+    M = wp.WelshPowell(G, G.nodes()[0])
     pathDoArquivoNovo = pathDoArquivo.replace(".gexf","_WelshPowell.gexf")
     nx.write_gexf(M, pathDoArquivoNovo)
 
