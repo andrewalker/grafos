@@ -7,8 +7,8 @@ def Dijkstra(G, s, t):
     S = {}
     Q = G.nodes()
 
-    for e in G.edges():
-        S[e] = n.inf
+    for v in G.nodes():
+        S[v] = n.inf
 
     S[s] = 0
 
@@ -37,12 +37,15 @@ def Dijkstra(G, s, t):
     while b:
         vertices_subgrafo.append(b)
         v = b
-        b = backtrack[v].pop()
+        if backtrack[v]:
+            b = backtrack[v].pop()
+        else:
+            b = 0
 
-    vertices_subgrafo = reversed(vertices_subgrafo)
+    vertices_subgrafo.reverse()
     caminho = []
 
-    for i in range(len(vertices_subgrafo)):
+    for i in range(len(vertices_subgrafo)-1):
         caminho.append([ vertices_subgrafo[i], vertices_subgrafo[i+1] ])
 
     P = G.subgraph(vertices_subgrafo)
