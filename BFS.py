@@ -3,7 +3,7 @@
 import networkx as nx
 import numpy as n
 
-def BFS(G, s=1):
+def BFS(G, s):
     cor  = {}
     pred = {}
     d    = {}
