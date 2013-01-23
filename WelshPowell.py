@@ -56,6 +56,11 @@ def WelshPowell(G=nx.Graph()):
       #retira tupla utilizada para selecionar o proximo maior grau
       bkpGraus.remove((valorMax,indiceMax))
 
+   # Layout do grafo (necessário para a plotagem matplotlib)
+   pos=nx.spring_layout(G)
+   # lista de labels de cada vértice
+   labels = {}
+
    particoes = {} # partições do grafo (cores com seus vertices)
 
    # Pega a primeira cor da lista de cada vértice e atualiza a lista de cores
@@ -80,6 +85,14 @@ def WelshPowell(G=nx.Graph()):
          if listaCoresVertice[indiceMax][0] in listaCoresVertice[vizinho]:
             listaCoresVertice[vizinho].remove(listaCoresVertice[indiceMax][0])
 
+      #desenha usando o matplotlib
+      nx.draw_networkx_nodes(G,pos,
+                          nodelist=[indiceMax],
+                          node_color=[(a/255,b/255,c/255,d)],
+                          node_size=500)
+
+      labels[indiceMax] = indiceMax   #atualiza nome dos vértices
+
       # Caso não tenha o atributo viz, essas linhas abaixo são necessárias
       G.node[indiceMax]['viz'] = {}
       G.node[indiceMax]['viz']['color'] = {}
@@ -97,5 +110,11 @@ def WelshPowell(G=nx.Graph()):
       # remove o vertice selecionado para que possa seguir para o próximo
       # vértice de maior grau
       graus.remove((valorMax,indiceMax))
+
+   #desenha o label de cada vertice
+   nx.draw_networkx_labels(G,pos,labels)
+   #desenha cada aresta
+   nx.draw_networkx_edges(G,pos,width=1.0)
+   pl.show() # mostra o grafo usando matplotlib
 
    return particoes

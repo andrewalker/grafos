@@ -28,7 +28,7 @@ H = DFS(G, 'u')
 
 # labels = {}
 # for v in H.nodes():
-#     labels[v] = H.node[v]['depth']
+#     labels[v] = H.node[v]['begin_time']
 
 # pos = nx.spring_layout(G)
 # nx.draw(G, pos)
