@@ -12,10 +12,15 @@ def Dijkstra(G, s):
     for v in G.nodes():
         Lambda[v] = n.inf
 
+    # Caso não haja pesos definidos para os vértices, atribuímos o valor 1.0.
+    # Esta é uma abordagem alternativa à que usamos em Kruskal, de utilizar uma
+    # variável para verificar se estamos levando em conta o peso ou não.
+    for v1,v2 in G.edges():
+        if ('weight' not in G[v1][v2]):
+            G[e][x]['weight'] = 1
+
     Lambda[s] = 0
     Pi[s] = None
-
-    # Não preciso do S devido a checagem de v em Q dentro do IF do FOR
 
     while Q:
         menor = n.inf
