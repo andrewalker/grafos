@@ -30,6 +30,9 @@ H = DFS(G, 'u')
 # for v in H.nodes():
 #     labels[v] = H.node[v]['depth']
 
+# pos = nx.spring_layout(G)
+# nx.draw(G, pos)
+
 pos = nx.spring_layout(H)
 nx.draw(H, pos)
 #nx.draw_networkx_labels(H, pos, labels)

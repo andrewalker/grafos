@@ -36,6 +36,8 @@ for v in H.nodes():
 
 pos = nx.spring_layout(H)
 nx.draw(H, pos)
+# pos = nx.spring_layout(G)
+# nx.draw(G, pos)
 #nx.draw_networkx_labels(H, pos, labels)
 #nx.draw_networkx_edges(H, pos)
 
