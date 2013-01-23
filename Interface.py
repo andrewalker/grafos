@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 
 import networkx as nx   #permite manipulação de grafos
-from tkinter import *   #Prove interface gráfica para menu
+import sys
+if sys.version_info[0] <3:
+    from Tkinter import *
+else:
+    from tkinter import *   #Prove interface gráfica para menu
 import Kruskal as krl
 import BFS as bfs
 import DFS as dfs
