@@ -3,7 +3,7 @@
 import networkx as nx
 import numpy as n
 
-def Dijkstra(G, s, t):
+def Dijkstra(G, s):
     Lambda = {}
     Pi = {}
     Q = G.nodes()
@@ -18,7 +18,6 @@ def Dijkstra(G, s, t):
 
     while Q:
         u = min(Q) # vertice de menor valor do lambda em Q
-
 
         for v in G[u]:
             if (v in Q) and (Lambda[v] > Lambda[u] + G[u][v]['weight']):
