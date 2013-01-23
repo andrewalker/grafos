@@ -8,6 +8,7 @@ if sys.version_info[0] <3:
     import tkFileDialog as tk
 else:
     from tkinter import *   #Prove interface gráfica para menu
+    import tkinter.filedialog
 import Kruskal as krl
 import BFS as bfs
 import DFS as dfs
