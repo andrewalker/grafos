@@ -31,6 +31,10 @@ labels = {}
 for v1,v2,data in H.edges(data=True):
     labels[(v1,v2)] = data['weight']
 
+# pos = nx.spring_layout(G)
+# nx.draw(G, pos)
+# nx.draw_networkx_edge_labels(G, pos, labels)
+
 pos = nx.spring_layout(H)
 nx.draw(H, pos)
 nx.draw_networkx_edge_labels(H, pos, labels)
