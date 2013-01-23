@@ -29,7 +29,7 @@ def visit(G, s, cor, pred, d, f, tempo):
     for v in G[s]:
         if cor[v] == 'branco':
             pred[v] = s
-            DFS_VISIT(G,v, cor, pred, d, f)
+            visit(G,v, cor, pred, d, f)
 
     cor[s] = 'preta'
     tempo = tempo + 1
