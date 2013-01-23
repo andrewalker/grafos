@@ -18,7 +18,7 @@ DFS_VISIT(Grafo G, Vertice v)
     tempo++
     d[v] = tempo ; tempo de entrada
     color[v] = 'gray'
-    
+
     FOR EACH u in neighbor(v)
         IF(color[u] = 'white')
             pred[u] = v
