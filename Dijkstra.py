@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import networkx as nx
 import numpy as n
+import sys
 
 def Dijkstra(G, s):
     Lambda = {}
@@ -19,10 +20,16 @@ def Dijkstra(G, s):
     while Q:
         menor = n.inf
         u     = Q[0]
-        for k,v in Lambda.iteritems():
-            if (v < menor) and (k in Q):
-                menor = v
-                u = k
+        if sys.version_info[0] < 3:
+            for k,v in Lambda.iteritems():
+                if (v < menor) and (k in Q):
+                    menor = v
+                    u = k
+        else:
+            for k,v in Lambda.items():
+                if (v < menor) and (k in Q):
+                    menor = v
+                    u = k
 
         u_index = Q.index(u)
         del Q[u_index]
