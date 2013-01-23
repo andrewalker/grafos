@@ -25,7 +25,7 @@ G.add_edge('x', 'z', weight=4)
 G.add_edge('z', 'x', weight=6)
 G.add_edge('z', 's', weight=7)
 
-H = d.Dijkstra(G, 's', 't')
+H = d.Dijkstra(G, 's')
 
 nx.draw(H)
 plt.show()
