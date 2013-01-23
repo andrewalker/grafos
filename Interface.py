@@ -19,7 +19,10 @@ options['defaultextension'] = '.gexf'
 options['initialfile'] = '*.gexf'
 
 def aplica_kruskal():
-    pathDoArquivo = filedialog.askopenfilename()
+    if sys.version_info[0] <3:
+        pathDoArquivo = FileDialog.askopenfilename()
+    else:
+        pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
     G = krl.Kruskal(G)
     pathDoArquivo = pathDoArquivo.replace(".gexf","_MST_Kruskal.gexf")
@@ -28,7 +31,10 @@ def aplica_kruskal():
     plt.show()
 
 def aplica_prim():
-    pathDoArquivo = filedialog.askopenfilename()
+    if sys.version_info[0] <3:
+        pathDoArquivo = FileDialog.askopenfilename()
+    else:
+        pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
     G = pr.Prim(G)
     pathDoArquivo = pathDoArquivo.replace(".gexf","_MST_Prim.gexf")
@@ -37,7 +43,10 @@ def aplica_prim():
     plt.show()
     
 def aplica_largura():
-    pathDoArquivo = filedialog.askopenfilename()
+    if sys.version_info[0] <3:
+        pathDoArquivo = FileDialog.askopenfilename()
+    else:
+        pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
     G = bfs.BFS(G)
     pathDoArquivo = pathDoArquivo.replace(".gexf","_BFS.gexf")
@@ -46,7 +55,10 @@ def aplica_largura():
     plt.show()
     
 def aplica_profundidade():
-    pathDoArquivo = filedialog.askopenfilename()
+    if sys.version_info[0] <3:
+        pathDoArquivo = FileDialog.askopenfilename()
+    else:
+        pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
     G = dfs.DFS(G)
     pathDoArquivo = pathDoArquivo.replace(".gexf","_DFS.gexf")
@@ -55,7 +67,10 @@ def aplica_profundidade():
     plt.show()
     
 def aplica_dijkstra():
-    pathDoArquivo = filedialog.askopenfilename()
+    if sys.version_info[0] <3:
+        pathDoArquivo = FileDialog.askopenfilename()
+    else:
+        pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
     G = dks.Dijkstra(G)
     pathDoArquivo = pathDoArquivo.replace(".gexf","_Dijkstra.gexf")
@@ -64,7 +79,10 @@ def aplica_dijkstra():
     plt.show()
     
 def aplica_coloracao():
-    pathDoArquivo = filedialog.askopenfilename()
+    if sys.version_info[0] <3:
+        pathDoArquivo = FileDialog.askopenfilename()
+    else:
+        pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
     G = wp.WelshPowell(G)
     pathDoArquivo = pathDoArquivo.replace(".gexf","_WelshPowell.gexf")
@@ -73,7 +91,10 @@ def aplica_coloracao():
     plt.show()
     
 def aplica_todos():
-    pathDoArquivo = filedialog.askopenfilename()
+    if sys.version_info[0] <3:
+        pathDoArquivo = FileDialog.askopenfilename()
+    else:
+        pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
     M = krl.Kruskal(G)
     pathDoArquivoNovo = pathDoArquivo.replace(".gexf","_MST_Kruskal.gexf")
@@ -95,7 +116,10 @@ def aplica_todos():
     nx.write_gexf(M, pathDoArquivoNovo)
 
 def visualizar():
-    pathDoArquivo = filedialog.askopenfilename()
+    if sys.version_info[0] <3:
+        pathDoArquivo = FileDialog.askopenfilename()
+    else:
+        pathDoArquivo = filedialog.askopenfilename()
     G = nx.read_gexf(pathDoArquivo)
     nx.draw(G)
     plt.show()
