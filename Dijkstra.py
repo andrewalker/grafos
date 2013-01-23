@@ -18,12 +18,13 @@ def Dijkstra(G, s, t):
         backtrack[v] = []
 
     while Q:
-        u = min(Q,key=Q.get)
+        u = min(Q)
 
         if u is t:
             break
 
-        del Q[u]
+        u_index = Q.index(u)
+        del Q[u_index]
 
         for v in G[u]:
             if (v in Q) and (S[v] > S[u] + G[u][v]['weight']):
