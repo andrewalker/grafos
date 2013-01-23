@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 import networkx as nx
 
+# Função auxiliar para encontrar o índice do conjunto em que o vértice se
+# encontra
 def encontrar_conjunto(lista, vertice):
     i = 0
     for conjunto in lista:
@@ -44,6 +46,7 @@ def Kruskal(G):
             else:
                 MST.add_edge(aresta[0], aresta[1])
 
+            # removemos os dois conjuntos de vértices do vetor vertices_conexos
             if indexConj1 > indexConj2:
                 conj1 = vertices_conexos.pop(indexConj1)
                 conj2 = vertices_conexos.pop(indexConj2)
@@ -51,6 +54,7 @@ def Kruskal(G):
                 conj2 = vertices_conexos.pop(indexConj2)
                 conj1 = vertices_conexos.pop(indexConj1)
 
+            # e inserimos um novo conjunto a partir da união dos dois
             vertices_conexos.append(conj1.union(conj2))
 
     return MST
